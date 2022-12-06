@@ -1,0 +1,15 @@
+package TestNG;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class SeleniumSetUp {
+	public WebDriver driver;
+	
+	public TestNavigation() {
+		System.setProperty("webdriver.chrome.driver","C:\\Selenium\\chromedriver\\chromedriver.exe");
+		//chrome driver may be outdated
+		driver = new ChromeDriver();
+	}
+}

@@ -1,0 +1,21 @@
+package Classes;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.remote.RemoteWebElement;
+
+public class Navigation {
+	WebDriver driver;
+	
+	public Navigation() {
+		System.setProperty("webdriver.chrome.driver","C:\\Selenium\\chromedriver\\chromedriver.exe");
+		driver = new ChromeDriver();
+	}
+	
+	public void timeout(int duration) {
+		driver.manage();
+	}
+	
+	
+}

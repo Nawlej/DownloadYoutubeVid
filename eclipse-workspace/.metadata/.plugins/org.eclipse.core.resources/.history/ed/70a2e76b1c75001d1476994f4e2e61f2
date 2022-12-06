@@ -1,0 +1,36 @@
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import Animals.Dog;
+import Classes.*;
+
+public class Driver {
+
+	public static void main(String[] args) {
+		YouTubeDownload download = new YouTubeDownload();
+		
+		String filepath = "C:\\Users\\chino\\OneDrive\\Desktop\\music list.txt";
+		File textfile = new File(filepath);
+		Scanner scanner = null;
+		try {
+			scanner = new Scanner(textfile);
+			while(scanner.hasNextLine()) {
+				String data = scanner.nextLine();
+				System.out.println(data);
+				download.downloadYouTubeVideos(data);
+			}
+		}
+		catch(Exception e) {
+			System.out.println(e);
+		} finally {
+			scanner.close();
+			download.driver.quit();
+		}
+	}	
+}

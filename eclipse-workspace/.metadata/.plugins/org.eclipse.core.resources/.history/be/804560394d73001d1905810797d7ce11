@@ -1,0 +1,24 @@
+package Classes;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.remote.RemoteWebElement;
+
+import TestNG.SeleniumSetUp;
+
+public class Google extends SeleniumSetUp{
+
+	public void search(String input) {
+		driver.findElement(By.xpath("//input[@name='q']")).sendKeys(input);
+		driver.findElement(By.xpath("//input[contains(text(), 'Google Search')]")).click();
+	}
+	
+	public WebElement searchBar() {
+		return driver.findElement(By.xpath("//input[@name='q']"));
+	}
+	
+	public WebElement searchBtn() {
+		return driver.findElement(By.xpath("//div[@class = 'FPdoLc lJ9FBc']/center/input[@value='Google Search']"));
+	}
+	
+}

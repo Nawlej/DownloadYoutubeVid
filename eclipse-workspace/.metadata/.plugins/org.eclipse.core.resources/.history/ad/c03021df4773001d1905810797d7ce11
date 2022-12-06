@@ -1,0 +1,19 @@
+package TestNG;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.remote.RemoteWebDriver;
+
+import Classes.Google;
+
+public class SeleniumSetUp {
+	public Google google = new Google();
+	public WebDriver driver;
+	
+	public SeleniumSetUp() {
+		System.setProperty("webdriver.chrome.driver","C:\\Selenium\\chromedriver\\chromedriver.exe");
+		//chrome driver may be outdated
+		driver = new ChromeDriver();
+	}
+}

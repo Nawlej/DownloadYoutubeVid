@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="1" total="3" passed="2" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2022-12-06T14:05:53 PST" name=" My First Suite" finished-at="2022-12-06T14:05:56 PST" duration-ms="3016">
+    <groups>
+      <group name="search">
+        <method signature="NavigationTests.googleSearch()[pri:0, instance:TestNG.NavigationTests@2e6a8155]" name="googleSearch" class="TestNG.NavigationTests"/>
+      </group> <!-- search -->
+      <group name="facebook">
+        <method signature="NavigationTests.setupFacebookProfile()[pri:0, instance:TestNG.NavigationTests@2e6a8155]" name="setupFacebookProfile" class="TestNG.NavigationTests"/>
+      </group> <!-- facebook -->
+      <group name="google">
+        <method signature="NavigationTests.googleSearch()[pri:0, instance:TestNG.NavigationTests@2e6a8155]" name="googleSearch" class="TestNG.NavigationTests"/>
+      </group> <!-- google -->
+    </groups>
+    <test started-at="2022-12-06T14:05:53 PST" name="First Test" finished-at="2022-12-06T14:05:56 PST" duration-ms="3016">
+      <class name="TestNG.NavigationTests">
+        <test-method is-config="true" signature="suiteSetUp()[pri:0, instance:TestNG.NavigationTests@2e6a8155]" started-at="2022-12-06T14:05:52 PST" name="suiteSetUp" finished-at="2022-12-06T14:05:53 PST" duration-ms="1033" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- suiteSetUp -->
+        <test-method signature="googleSearch()[pri:0, instance:TestNG.NavigationTests@2e6a8155]" started-at="2022-12-06T14:05:53 PST" name="googleSearch" finished-at="2022-12-06T14:05:55 PST" duration-ms="1831" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- googleSearch -->
+        <test-method signature="setupFacebookProfile()[pri:0, instance:TestNG.NavigationTests@2e6a8155]" started-at="2022-12-06T14:05:55 PST" name="setupFacebookProfile" finished-at="2022-12-06T14:05:56 PST" duration-ms="1165" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setupFacebookProfile -->
+        <test-method is-config="true" signature="quit()[pri:0, instance:TestNG.NavigationTests@2e6a8155]" started-at="2022-12-06T14:05:56 PST" name="quit" finished-at="2022-12-06T14:05:56 PST" duration-ms="132" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- quit -->
+      </class> <!-- TestNG.NavigationTests -->
+    </test> <!-- First Test -->
+  </suite> <!--  My First Suite -->
+</testng-results>

@@ -1,0 +1,21 @@
+package Classes;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.remote.RemoteWebElement;
+
+public class Google extends RemoteWebElement{
+
+	public void search(String input) {
+		findElement(By.xpath("//input[@name='q']")).sendKeys(input);
+		findElement(By.xpath("//input[contains(text(), 'Google Search')]")).click();
+	}
+	
+	public WebElement searchBar() {
+		return findElement(By.xpath("//input[@name='q']"));
+	}
+	
+	public WebElement searchBtn() {
+		return findElement(By.xpath("//div[@class = 'FPdoLc lJ9FBc']/center/input[@value='Google Search']"));
+	}
+	
+}

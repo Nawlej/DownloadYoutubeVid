@@ -1,0 +1,15 @@
+import org.openqa.selenium.By;
+import TestNG.SeleniumSetUp;
+
+public class Google extends SeleniumSetUp{
+
+	Google() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public void search(String input) {
+		driver.findElement(By.xpath("//input[@name='q']")).sendKeys(input);
+		driver.findElement(By.xpath("//input[contains(text(), 'Google Search')]")).click();
+	}
+}
