@@ -16,24 +16,17 @@ public class YouTubeDownload extends MagicSite{
 	
 	
 	public YouTubeDownload() {
-		downloadFilepath = "C:\\Users\\chino\\Music";
-		HashMap<String, Object> chromePref = new HashMap<String, Object>();
-		chromePref.put("profile.default_content_settings.popups", 0);
-		chromePref.put("download.default_directory", downloadFilepath);
-		ChromeOptions option = new ChromeOptions();
-		option.setExperimentalOption("prefs", chromePref);
 		System.setProperty("webdriver.chrome.driver","C:\\Selenium\\chromedriver\\chromedriver.exe");
-
-		driver = new ChromeDriver(option);
+		driver = new ChromeDriver();
 		wait = new WebDriverWait(driver, Duration.ofSeconds(600));
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(300));
 	}
 
 	//new features to implement = delete downloaded videos, have option to download either video or audio only, if high quality is not available then go to lower quality link
 	public void readTextDocument(String filepath) {
-		File textfile = new File(filepath);
 		Scanner scanner = null;
 		try {
+			File textfile = new File(filepath);
 			scanner = new Scanner(textfile);
 			while(scanner.hasNextLine()) {
 				String data = scanner.nextLine();

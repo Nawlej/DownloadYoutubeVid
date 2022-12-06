@@ -1,0 +1,12 @@
+import Classes.*;
+
+public class Driver {
+
+	public static void main(String[] args) {
+		YouTubeDownload download = new YouTubeDownload();
+		
+		String filepath = System.getProperty("user.dir");
+		filepath = filepath + "\\MusicList.xml";
+		download.readTextDocument(filepath);
+	}	
+}

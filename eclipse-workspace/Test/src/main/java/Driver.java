@@ -3,9 +3,17 @@ import Classes.*;
 public class Driver {
 
 	public static void main(String[] args) {
-		YouTubeDownload download = new YouTubeDownload();
+		YouTubeDownload download = null;
+		try {
+			download = new YouTubeDownload();
+			String filepath = System.getProperty("user.dir");
+			filepath = filepath + "\\MusicList.txt";
+			download.readTextDocument(filepath);
+		} catch(Exception e) {
+			System.out.println(e);
+		} finally {
+			download.driver.quit();
+		}
 		
-		String filepath = "C:\\Users\\chino\\OneDrive\\Desktop\\music list.txt";
-		download.readTextDocument(filepath);
 	}	
 }
