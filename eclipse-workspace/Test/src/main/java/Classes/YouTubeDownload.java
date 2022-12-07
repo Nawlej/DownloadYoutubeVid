@@ -1,7 +1,9 @@
 package Classes;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.time.Duration;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
 
@@ -23,44 +25,42 @@ public class YouTubeDownload extends MagicSite{
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(300));
 	}
 
-	//new features to implement = delete downloaded videos, have option to download either video or audio only, if high quality is not available then go to lower quality link
-	public void readTextDocument(String filepath) {
+	//new features to implement = have option to download either video or audio only, if high quality is not available then go to lower quality link
+	public void readTextDocument(String filepath) throws FileNotFoundException {
 		Scanner scanner = null;
-		PrintWriter writer = null;
+		File textfile = null;
+		ArrayList <String> skippedVideos = new ArrayList<String>();
 		try {
-			File textfile = new File(filepath);
+			textfile = new File(filepath);
 			scanner = new Scanner(textfile);
+
 			while(scanner.hasNextLine()) {
 				String data = scanner.nextLine();
 				System.out.println("Preparing to download " + data);
 				try {
-					downloadYouTubeVideos(data);
-					writer = new PrintWriter(textfile);
-					writer.append("");
-					writer.flush();
+					if (data.equals(null) || data.equals("")) {
+						return;
+					}
+					searchVid(data);
+					navigateToMagicSite();
+					downloadVid();
 				}
 				catch (Exception e) {
 					System.out.println(e);
 					System.out.println(data + " failed to download");
+					skippedVideos.add(data);
 				}
 			}
 		}
 		catch(Exception e) {
 			System.out.println(e);
 		} finally {
+			clearTextDoc(textfile);
+			recordSkippedVideos(skippedVideos, textfile);
 			scanner.close();
-			writer.close();
+			driver.close();
 			driver.quit();
 		}
-	}
-	
-	public void downloadYouTubeVideos(String videoName) throws InterruptedException {		
-		if (videoName.equals(null) || videoName.equals("")) {
-			return;
-		}
-		searchVid(videoName);
-		navigateToMagicSite();
-		downloadVid();
 	}
 	
 	public void searchVid(String videoName) {
@@ -76,5 +76,20 @@ public class YouTubeDownload extends MagicSite{
 		wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//div[@id = 'cinematics']"))));
 	}
 	
+	public void recordSkippedVideos(ArrayList<String> skippedVideos, File textfile) throws FileNotFoundException {
+		if (skippedVideos.size()>0) {
+			PrintWriter writer = new PrintWriter(textfile);
+			for (String name : skippedVideos ) {
+				writer.println(name);
+			}
+			writer.close();
+		}
+	}
+	
+	public void clearTextDoc(File textfile) throws FileNotFoundException {
+		PrintWriter writer = new PrintWriter(textfile);
+		writer.append("");
+		writer.close();
+	}
 
 }
