@@ -5,4 +5,5 @@ To download your music, simply add the name of the YouTube video that you wish t
 
 # Important
 This program selects and downloads the first search result on YouTube. So make sure you're getting the right results!
+
 Sometimes, the 3rd party website takes too long to convert the video into mp3. The program will eventually skip that video if that happens. Simply run the program again once it's done.
