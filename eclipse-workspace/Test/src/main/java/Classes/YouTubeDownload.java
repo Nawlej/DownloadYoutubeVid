@@ -1,5 +1,6 @@
 package Classes;
 import java.io.File;
+import java.io.PrintWriter;
 import java.time.Duration;
 import java.util.HashMap;
 import java.util.Scanner;
@@ -25,6 +26,7 @@ public class YouTubeDownload extends MagicSite{
 	//new features to implement = delete downloaded videos, have option to download either video or audio only, if high quality is not available then go to lower quality link
 	public void readTextDocument(String filepath) {
 		Scanner scanner = null;
+		PrintWriter writer = null;
 		try {
 			File textfile = new File(filepath);
 			scanner = new Scanner(textfile);
@@ -33,6 +35,9 @@ public class YouTubeDownload extends MagicSite{
 				System.out.println("Preparing to download " + data);
 				try {
 					downloadYouTubeVideos(data);
+					writer = new PrintWriter(textfile);
+					writer.append("");
+					writer.flush();
 				}
 				catch (Exception e) {
 					System.out.println(e);
@@ -44,6 +49,7 @@ public class YouTubeDownload extends MagicSite{
 			System.out.println(e);
 		} finally {
 			scanner.close();
+			writer.close();
 			driver.quit();
 		}
 	}
