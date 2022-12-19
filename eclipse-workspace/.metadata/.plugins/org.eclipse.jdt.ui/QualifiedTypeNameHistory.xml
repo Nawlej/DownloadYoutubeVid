@@ -14,9 +14,7 @@
     <fullyQualifiedTypeName name="org.openqa.selenium.By"/>
     <fullyQualifiedTypeName name="Classes.Bot"/>
     <fullyQualifiedTypeName name="Animals.Dog"/>
-    <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="TestNG.TestNavigation"/>
-    <fullyQualifiedTypeName name="org.openqa.selenium.WebElement"/>
     <fullyQualifiedTypeName name="org.openqa.selenium.SearchContext"/>
     <fullyQualifiedTypeName name="Classes.Google"/>
     <fullyQualifiedTypeName name="org.openqa.selenium.remote.RemoteWebDriver"/>
@@ -32,4 +30,8 @@
     <fullyQualifiedTypeName name="org.openqa.selenium.chrome.ChromeDriverService"/>
     <fullyQualifiedTypeName name="java.io.File"/>
     <fullyQualifiedTypeName name="java.util.Scanner"/>
+    <fullyQualifiedTypeName name="java.io.PrintWriter"/>
+    <fullyQualifiedTypeName name="org.openqa.selenium.WebElement"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
 </qualifiedTypeNameHistroy>
